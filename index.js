@@ -1,79 +1,21 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const knexfile = require('./knexfile')['development'];
-
-const knex = require('knex')(knexfile);
 const app = express();
 
+const knexfile = require('./knexfile')[process.env.KNEX_MODE];
+const knex = require('knex')(knexfile);
+
+const bodyParser = require('body-parser');
+
+const cors = require('./routes/cors');
+const person_routes = require('./routes/person_routes');
+const reservation_routes = require('./routes/reservation_routes');
+const rooms_routes = require('./routes/rooms_routes');
+
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(cors);
 
-// Habilitando CORS no nosso servidor.
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
-
-// Configurando Rotas
-
-// CRUD de Sala
-app.get('/rooms', (request, response) => {
-
-});
-
-app.get('/rooms/:room_id', (request, response) => {
-
-});
-
-app.post('/rooms/new', (request, response) => {
-
-});
-
-app.patch('/rooms/:room_id', (request, response) => {
-
-});
-
-app.delete('/rooms/:room_id', (request, response) => {
-
-});
-
-// CRUD de Pessoa
-app.get('/person', (request, response) => {
-
-});
-
-app.get('/person/:person_id', (request, response) => {
-
-});
-
-app.post('/person/new', (request, response) => {
-
-});
-
-app.patch('/person/:person_id', (request, response) => {
-
-});
-
-app.delete('/person/:person_id', (request, response) => {
-
-});
-
-// CRUD de Reserva
-
-app.get('/reservation', (request, response) => {
-
-});
-
-app.get('/reservation/:reservation_id', (request, response) => {
-
-});
-
-app.post('/reservation/new', (request, response) => {
-
-});
-
-app.patch('/reservation/:reservation_id', (request, response) => {
-
-});
+app.use('/people', person_routes);
+app.use('/reservations', reservation_routes);
+app.use('/rooms', rooms_routes);
 
 app.listen(8080);
