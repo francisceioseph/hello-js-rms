@@ -1,0 +1,17 @@
+{
+  "name": "room_manager_backend",
+  "version": "1.0.0",
+  "description": "Um backend bem simples para um sistema de reservas de sala em uma instituição",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Francisco José A. C. Souza",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "knex": "^0.12.6",
+    "sqlite3": "^3.1.8"
+  }
+}
