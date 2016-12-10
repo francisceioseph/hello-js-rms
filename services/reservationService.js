@@ -41,10 +41,15 @@ function updateReservation(reservation_id, reservation) {
   return knex('reservation').update(reservation).where({reservation_id: reservation_id});
 }
 
+function deleteReservation(reservation_id){
+  return knex('reservation').del().where({reservation_id: reservation_id});
+}
+
 module.exports = {
   createReservation: createReservation,
   listAllReservations: listAllReservations,
   getReservationByID: getReservationByID,
   getReservationBetween: getReservationBetween,
-  updateReservation: updateReservation
+  updateReservation: updateReservation,
+  deleteReservation: deleteReservation
 }
