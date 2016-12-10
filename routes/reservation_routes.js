@@ -11,6 +11,10 @@ router.get('/:reservation_id', (request, response) => {
 
 });
 
+router.get('/between/:start_timestamp/and/:end_timestamp', (request, response) => {
+
+});
+
 router.post('/new', (request, response) => {
 
 });

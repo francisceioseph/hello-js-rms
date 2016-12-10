@@ -10,6 +10,10 @@ router.get('/:person_id', (request, response) => {
 
 });
 
+router.get('/:name', (request, response) => {
+
+});
+
 router.post('/new', (request, response) => {
 
 });
