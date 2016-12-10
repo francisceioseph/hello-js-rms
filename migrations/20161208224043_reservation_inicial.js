@@ -1,7 +1,7 @@
 
 exports.up = function(knex, Promise) {
     return knex.schema.createTableIfNotExists('reservation', table => {
-      table.increments('reservation_id');
+      table.increments('reservation_id').unsigned().primary();
 
       table.timestamp('reservation_created_at').defaultTo(knex.fn.now());
       table.timestamp('reservation_start_at').notNullable();

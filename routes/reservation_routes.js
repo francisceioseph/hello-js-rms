@@ -8,11 +8,25 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
 
 router.get('/', (request, response) => {
-
+  reservationService.listAllReservations()
+    .then(result => {
+      response.send(result);
+    })
+    .catch(error => {
+      response.send(error);
+    });
 });
 
 router.get('/:reservation_id', (request, response) => {
+  let reservation_id = request.params.reservation_id;
 
+  reservationService.getReservationByID(reservation_id)
+    .then(result => {
+      response.send(result);
+    })
+    .catch(error => {
+      response.send(error);
+    });
 });
 
 router.get('/between/:start_timestamp/and/:end_timestamp', (request, response) => {

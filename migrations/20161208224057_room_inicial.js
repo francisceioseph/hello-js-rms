@@ -1,7 +1,7 @@
 
 exports.up = function(knex, Promise) {
     return knex.schema.createTableIfNotExists('room', table => {
-      table.increments('room_id');
+      table.increments('room_id').unsigned().primary();
 
       table.string('room_name').notNullable();
       table.string('room_type').notNullable();
