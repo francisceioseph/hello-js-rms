@@ -1,7 +1,12 @@
 const express = require('express');
 const router  = express.Router();
 
-// CRUD de Sala
+const roomService = require('../services/roomService');
+
+const app = express();
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: true}));
+
 router.get('/', (request, response) => {
 
 });

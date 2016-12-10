@@ -1,7 +1,11 @@
 const express = require('express');
 const router  = express.Router();
 
-// CRUD de Reserva
+const reservationService = require('../services/reservationService');
+
+const app = express();
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: true}));
 
 router.get('/', (request, response) => {
 

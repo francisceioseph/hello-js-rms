@@ -1,4 +1,4 @@
-const knexfile = require('./knexfile')[process.env.KNEX_MODE];
+const knexfile = require('../knexfile')[process.env.KNEX_MODE];
 const knex = require('knex')(knexfile);
 
 function createReservation(reservation) {
